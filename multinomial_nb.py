@@ -20,11 +20,6 @@ jumlah_kolom= dataset.shape[1]
 X = dataset[:,0:jumlah_kolom-1] #load semua baris, load kolom ke 0 sampai dengan kolom ke JUMLAH KOLOM - 1
 y = dataset[: , jumlah_kolom-1] #load kolom paling kanan
 
-
-# print(X[0:3, : ]) #coba keluarkan baris 0 sebanyak 3 baris, bandingkan dengan dataset asli, yg missing di-coding jadi gak 0
-#diganti rata-rata
-# print(y)
-
 klasifier = MultinomialNB()
 klasifier.fit(X,y) #trainkan
 hasil_prediksi = klasifier.predict([[70,1,4,130,322,0,2,109,0,2.4,2,3,3]]) #coba prediksikan pakai array
