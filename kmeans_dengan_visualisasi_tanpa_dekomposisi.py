@@ -1,3 +1,8 @@
+
+
+
+
+# HAHA
 __author__ = 'ahmadauliawiguna'
 
 import numpy as np
@@ -21,31 +26,22 @@ y = dataset[: , jumlah_kolom-1] #load kolom paling kanan
 # AWAL
 pca = PCA(n_components=7).fit(X)
 pca_2d = pca.transform(X)
-
-jumlah_cluster = 8
-
-kmeans = KMeans(n_clusters=jumlah_cluster, random_state=111)
+kmeans = KMeans(n_clusters=4, random_state=111)
 kmeans.fit(X)
+y_kmeans = kmeans.predict(X)
 
 contoh = [[14.16,14.4,0.8584,5.658,3.129,3.072,5.176]]
 #contoh dikelompokkan di cluster ke berapa
 cluster_ke_berapa = kmeans.predict(contoh)[0]
 #tampilkan titip pusatnya
 centers = kmeans.cluster_centers_
-
-pca_center = pca.transform(centers)
-pca_contoh = pca.transform(contoh)
-
 n_clusters = len(centers)
 
 
-pl.figure('K-means dengan ' + str(jumlah_cluster )+ ' clusters')
-pl.scatter(pca_2d[:, 0], pca_2d[:, 1], c=kmeans.labels_)
-
-#tandai posisi center tiap cluster
-pl.scatter(pca_center[:, 0], pca_center[:, 1], c="black",s=200,alpha=0.5)
-
-#tandai posisi contoh iku dimana sih
-pl.scatter(pca_contoh[:, 0], pca_contoh[:, 1], c="blue",s=350,alpha=0.8,marker="*")
+pl.figure('K-means dengan 4 clusters')
+pl.scatter(X[:, 0], X[:, 1], c=y_kmeans)
+pl.scatter(centers[:, 0], centers[:, 1], c='black', s=200, alpha=0.5);
 pl.show()
+
+
 
