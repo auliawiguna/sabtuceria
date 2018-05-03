@@ -16,7 +16,9 @@ X_train_tf = tf.transform(X_train_counts)
 
 klasifier = MultinomialNB().fit(X_train_tf, data_train.target)
 
-test = ['syria civil war and arab spring','two stroke engine is matter for speed', 'activate OpenGL and high speed processor'] #kalimat yg mau dites
+test = ['too much cholesterol can causes heart attack','donald trump refuses to ban possession of weapon'
+        ,'running out of lubricant can damage your car','one more hit and home run',
+        'jupiter is the biggest jovian planet in our solar system','pluto is not planet anymore','syria civil war and arab spring','two stroke engine is matter for speed', 'activate OpenGL and high speed processor'] #kalimat yg mau dites
 
 X_new_counts = count_vect.transform(test)
 X_new_tfidf = tf.transform(X_new_counts) #hitung TF kata2 di dataset, 1 + log(jumlah kata)
