@@ -22,7 +22,7 @@ y = dataset[: , jumlah_kolom-1] #load kolom paling kanan
 pca = PCA(n_components=7).fit(X)
 pca_2d = pca.transform(X)
 
-jumlah_cluster = 8
+jumlah_cluster = 4
 
 kmeans = KMeans(n_clusters=jumlah_cluster, random_state=111)
 kmeans.fit(X)

@@ -33,7 +33,7 @@ y_kmeans = kmeans.predict(X)
 contoh = [[14.16,14.4,0.8584,5.658,3.129,3.072,5.176]]
 #contoh dikelompokkan di cluster ke berapa
 cluster_ke_berapa = kmeans.predict(contoh)[0]
-#tampilkan titip pusatnya
+#tampilkan titik pusatnya
 centers = kmeans.cluster_centers_
 n_clusters = len(centers)
 
@@ -41,6 +41,7 @@ n_clusters = len(centers)
 pl.figure('K-means dengan 4 clusters')
 pl.scatter(X[:, 0], X[:, 1], c=y_kmeans)
 pl.scatter(centers[:, 0], centers[:, 1], c='black', s=200, alpha=0.5);
+pl.scatter(contoh[0][0], contoh[0][1], c="blue",s=350,alpha=0.8,marker="*");
 pl.show()
 
 
