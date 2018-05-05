@@ -25,7 +25,9 @@ pca_2d = pca.transform(X)
 jumlah_cluster = 4
 
 kmeans = KMeans(n_clusters=jumlah_cluster, random_state=111)
-kmeans.fit(X)
+fitting = kmeans.fit(X)
+
+print(fitting)
 
 contoh = [[14.16,14.4,0.8584,5.658,3.129,3.072,5.176]]
 #contoh dikelompokkan di cluster ke berapa
@@ -38,6 +40,7 @@ pca_contoh = pca.transform(contoh)
 
 n_clusters = len(centers)
 
+print(kmeans.labels_)
 
 pl.figure('K-means dengan ' + str(jumlah_cluster )+ ' clusters')
 pl.scatter(pca_2d[:, 0], pca_2d[:, 1], c=kmeans.labels_)
